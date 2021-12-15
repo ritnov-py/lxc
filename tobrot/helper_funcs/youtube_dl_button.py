@@ -27,7 +27,7 @@ async def youtube_dl_call_back(bot, update):
         cf_name = get_cf_name.split("|", maxsplit=1)[1]
         cf_name = cf_name.strip()
     # youtube_dl extractors
-    tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
+    tg_send_type, yt_dlp_format, yt_dlp_ext = cb_data.split("|")
     #
     current_user_id = update.message.reply_to_message.from_user.id
     current_touched_user_id = update.from_user.id
@@ -72,8 +72,8 @@ async def youtube_dl_call_back(bot, update):
     # TODO: temporary limitations
     # LOGGER.info(response_json)
     #
-    youtube_dl_url = response_json.get("webpage_url")
-    LOGGER.info(youtube_dl_url)
+    yt_dlp_url = response_json.get("webpage_url")
+    LOGGER.info(yt_dlp_url)
     #
     custom_file_name = "%(title)s.%(ext)s"
     # https://superuser.com/a/994060
@@ -96,46 +96,57 @@ async def youtube_dl_call_back(bot, update):
     thumb_image = response_json.get("thumbnail", thumb_image)
     if tg_send_type == "audio":
         command_to_exec = [
-            "youtube-dl",
+            "yt-dlp",
             "-c",
             "--prefer-ffmpeg",
             "--extract-audio",
             "--audio-format",
-            youtube_dl_ext,
+            yt_dlp_ext,
             "--audio-quality",
-            youtube_dl_format,
-            youtube_dl_url,
+            yt_dlp_format,
+            yt_dlp_url,
             "-o",
             download_directory,
         ]
-    else:
+    else:6
         for for_mat in response_json["formats"]:
             format_id = for_mat.get("format_id")
-            if format_id == youtube_dl_format:
+            if format_id == yt_dlp_format:
                 acodec = for_mat.get("acodec")
                 if acodec == "none":
-                    youtube_dl_format += "+bestaudio"
+                    yt_dlp_format += "+bestaudio"
                 break
 
         command_to_exec = [
-            "youtube-dl",
+            "yt-dlp",
             "-c",
+            "-f", minus_f_format,
             "--embed-subs",
-            "-f",
-            youtube_dl_format,
-            "--hls-prefer-ffmpeg",
-            youtube_dl_url,
-            "-o",
-            download_directory,
+            "--convert-subs", "srt",
+            "--remux-video", "mkv",
+            yt_dlp_url,
+            "-o", download_directory,
         ]
     #
     command_to_exec.append("--no-warnings")
     # command_to_exec.append("--quiet")
     command_to_exec.append("--restrict-filenames")
     #
-    if "hotstar" in youtube_dl_url:
+    if "hotstar" in yt_dlp_url:
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("IN")
+    if "hotstar" in yt_dlp_url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies4.txt")
+    if "hoichoi" in yt_dlp_url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies.txt")
+    if "chorki" in yt_dlp_url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies2.txt")
+    if "aha" in yt_dlp_url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies3.txt")    
     LOGGER.info(command_to_exec)
     process = await asyncio.create_subprocess_exec(
         *command_to_exec,
