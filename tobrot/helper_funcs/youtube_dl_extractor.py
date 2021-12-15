@@ -27,6 +27,18 @@ async def extract_youtube_dl_formats(
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("IN")
     #
+    if "hotstar" in url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies4.txt")
+    if "hoichoi" in url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies.txt")
+    if "aha" in url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies3.txt")
+    if "chorki" in url:
+        command_to_exec.append("--cookies")
+        command_to_exec.append("./cookies2.txt")
     if yt_dl_user_name is not None:
         command_to_exec.append("--username")
         command_to_exec.append(yt_dl_user_name)
