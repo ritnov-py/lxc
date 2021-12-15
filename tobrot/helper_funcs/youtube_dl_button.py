@@ -108,7 +108,7 @@ async def youtube_dl_call_back(bot, update):
             "-o",
             download_directory,
         ]
-    else:6
+    else:
         for for_mat in response_json["formats"]:
             format_id = for_mat.get("format_id")
             if format_id == yt_dlp_format:
