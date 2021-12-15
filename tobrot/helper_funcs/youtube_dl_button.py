@@ -120,7 +120,7 @@ async def youtube_dl_call_back(bot, update):
         command_to_exec = [
             "yt-dlp",
             "-c",
-            "-f", minus_f_format,
+            "-f", yt_dlp_format,
             "--embed-subs",
             "--convert-subs", "srt",
             "--remux-video", "mkv",
