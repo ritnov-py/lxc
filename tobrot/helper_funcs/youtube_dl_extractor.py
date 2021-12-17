@@ -18,7 +18,7 @@ async def extract_youtube_dl_formats(
     command_to_exec = [
         "yt-dlp",
         "--no-warnings",
-        "-j",
+        "-J",
         url,
     ]
     if "hotstar" in url:
