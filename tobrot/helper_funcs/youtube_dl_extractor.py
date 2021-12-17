@@ -36,7 +36,7 @@ async def extract_youtube_dl_formats(
         command_to_exec.append("./cookies3.txt")
     if "chorki" in url:
         command_to_exec.append("--cookies")
-        command_to_exec.append("./cookies2.txt")
+        command_to_exec.append("cookies2.txt")
     if "youtu" in url:
         command_to_exec.append("--cookies")
         command_to_exec.append("./ytcookies.txt")
