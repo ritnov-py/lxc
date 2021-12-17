@@ -4,7 +4,6 @@ hachoir
 Pillow
 pyrogram
 tgcrypto
-git+https://github.com/ritwik-ritnov/yt-dlp.git
 hurry.filesize
 python-dotenv
 psutil
@@ -18,3 +17,4 @@ messages
 js2py
 cfscrape
 lk21
+git+https://github.com/ritwik-ritnov/yt-dlp.git
