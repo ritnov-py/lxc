@@ -137,19 +137,19 @@ async def youtube_dl_call_back(bot, update):
         command_to_exec.append("IN")
     if "hotstar" in yt_dlp_url:
         command_to_exec.append("--cookies")
-        command_to_exec.append("./cookies4.txt")
+        command_to_exec.append("cookies4.txt")
     if "hoichoi" in yt_dlp_url:
         command_to_exec.append("--cookies")
-        command_to_exec.append("./cookies.txt")
+        command_to_exec.append("cookies.txt")
     if "chorki" in yt_dlp_url:
         command_to_exec.append("--cookies")
-        command_to_exec.append("./cookies2.txt")
+        command_to_exec.append("cookies2.txt")
     if "aha" in yt_dlp_url:
         command_to_exec.append("--cookies")
-        command_to_exec.append("./cookies3.txt")
+        command_to_exec.append("cookies3.txt")
     if "youtu" in yt_dlp_url:
         command_to_exec.append("--cookies")
-        command_to_exec.append("./ytcookies.txt")     
+        command_to_exec.append("ytcookies.txt")     
     LOGGER.info(command_to_exec)
     process = await asyncio.create_subprocess_exec(
         *command_to_exec,
