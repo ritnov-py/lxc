@@ -16,5 +16,5 @@ requests
 messages
 js2py
 cfscrape
-yt-dlp
 lk21
+git+https://github.com/ritwik-ritnov/yt-dlp.git
