@@ -30,9 +30,6 @@ async def extract_youtube_dl_formats(
     if "hoichoi" in url:
         command_to_exec.append("--cookies")
         command_to_exec.append("cookies.txt")
-    if "aha" in url:
-        command_to_exec.append("--cookies")
-        command_to_exec.append("cookies3.txt")
     if "chorki" in url:
         command_to_exec.append("--cookies")
         command_to_exec.append("cookies2.txt")
