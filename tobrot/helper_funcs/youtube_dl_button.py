@@ -124,7 +124,7 @@ async def youtube_dl_call_back(bot, update):
             "--embed-subs",
             "--convert-subs", "srt",
             "--remux-video", "mkv",
-            "--ppa", '"ffmpeg_i1:-metadata title='Moviez Café™'"',
+            "--ppa", "'ffmpeg_i1:-metadata title="Moviez Café™"'",
             yt_dlp_url,
             "-o", download_directory,
         ]
