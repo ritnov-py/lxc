@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # (c) Shrimadhav U K | gautamajay52
 
+from pyrogram import enums
 import asyncio
 import logging
 import os
@@ -521,7 +522,7 @@ async def upload_single_file(
                             media=local_file_name,
                             thumb=thumb,
                             caption=caption_str,
-                            parse_mode="html",
+                            parse_mode=enums.ParseMode.HTML,
                         )
                     )
                 else:
