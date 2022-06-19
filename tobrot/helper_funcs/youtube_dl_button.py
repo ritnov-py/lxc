@@ -107,7 +107,6 @@ async def youtube_dl_call_back(bot, update):
             yt_dlp_url,
             "-o",
             download_directory,
-            "--geo-bypass-country", "IN",
         ]
     else:
         for for_mat in response_json["formats"]:
@@ -126,8 +125,8 @@ async def youtube_dl_call_back(bot, update):
             "--convert-subs", "srt",
             "--remux-video", "mkv",
             yt_dlp_url,
-            "-o", download_directory,
-            "--allow-unplayable-formats",
+            "-o", 
+            download_directory,
             "--external-downloader", "aria2c",
             "--geo-bypass-country", "IN",
         ]
@@ -136,12 +135,9 @@ async def youtube_dl_call_back(bot, update):
     # command_to_exec.append("--quiet")
     
     #
-    if "hotstar" in yt_dlp_url:
+    if "hoichoi" in yt_dlp_url:
         command_to_exec.append("--geo-bypass-country")
         command_to_exec.append("IN")
-    if "hotstar" in yt_dlp_url:
-        command_to_exec.append("--cookies")
-        command_to_exec.append("cookies4.txt")
     if "hoichoi" in yt_dlp_url:
         command_to_exec.append("--cookies")
         command_to_exec.append("cookies.txt")
