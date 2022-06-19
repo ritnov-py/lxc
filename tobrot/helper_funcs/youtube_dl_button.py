@@ -107,6 +107,7 @@ async def youtube_dl_call_back(bot, update):
             yt_dlp_url,
             "-o",
             download_directory,
+            "--geo-bypass-country", "IN",
         ]
     else:
         for for_mat in response_json["formats"]:
@@ -128,6 +129,7 @@ async def youtube_dl_call_back(bot, update):
             "-o", download_directory,
             "--allow-unplayable-formats",
             "--external-downloader", "aria2c",
+            "--geo-bypass-country", "IN",
         ]
     #
     command_to_exec.append("--no-warnings")
