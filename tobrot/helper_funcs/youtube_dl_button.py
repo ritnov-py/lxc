@@ -128,7 +128,6 @@ async def youtube_dl_call_back(bot, update):
             "-o", 
             download_directory,
             "--external-downloader", "aria2c",
-            "--geo-bypass-country", "IN",
         ]
     #
     command_to_exec.append("--no-warnings")
