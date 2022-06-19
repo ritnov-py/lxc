@@ -7,6 +7,7 @@ import asyncio
 import logging
 import os
 import time
+from pyrogram import enums
 from pathlib import Path
 import aria2p
 import requests
@@ -151,7 +152,7 @@ async def incoming_youtube_dl_f(client, message):
     current_user_id = message.from_user.id
     u_men = message.from_user.mention
     credit = await message.reply_text(
-        f"<b><i>🛃 Working For 🛃:</i></b> {u_men}", parse_mode="html"
+        f"<b><i>🛃 Working For 🛃:</i></b> {u_men}", parse_mode=enums.ParseMode.HTML
     )
     i_m_sefg = await message.reply_text("<code>Prrocessing...🔃</code>", quote=True)
     # LOGGER.info(message)
