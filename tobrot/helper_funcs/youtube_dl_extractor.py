@@ -19,6 +19,7 @@ async def extract_youtube_dl_formats(
         "yt-dlp",
         "-j",
         url,
+        "--geo-bypass-country", "IN",
     ]
     if "hotstar" in url:
         command_to_exec.append("--geo-bypass-country")
