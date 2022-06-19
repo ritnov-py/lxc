@@ -127,7 +127,6 @@ async def youtube_dl_call_back(bot, update):
             yt_dlp_url,
             "-o", 
             download_directory,
-            "--external-downloader", "aria2c",
         ]
     #
     command_to_exec.append("--no-warnings")
