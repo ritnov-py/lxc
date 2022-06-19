@@ -10,7 +10,7 @@ import shutil
 import sys
 import time
 import traceback
-
+from pyrogram import enums
 import psutil
 import math
 from pyrogram.errors import FloodWait, MessageIdInvalid, MessageNotModified
@@ -129,7 +129,7 @@ async def status_message_f(
         else:
             if msg != prev_mess:
                 try:
-                    await to_edit.edit(msg, parse_mode="html")
+                    await to_edit.edit(msg, parse_mode=enums.ParseMode.HTML)
                 except MessageIdInvalid as df:
                     break
                 except MessageNotModified as ep:
