@@ -2,7 +2,7 @@ import logging
 
 import pyrogram
 from tobrot import *
-
+from pyrogram import enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
