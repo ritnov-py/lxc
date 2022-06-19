@@ -9,7 +9,7 @@ import logging
 import os
 import re
 import subprocess
-
+from pyrogram import enums
 import pyrogram.types as pyrogram
 import requests
 from tobrot import (
@@ -135,7 +135,7 @@ class CloneHelper:
                 f"🐈: {_up} Cloned successfully in your Cloud <a href='tg://user?id={self.u_id}'>😊</a>\
                 \n📀 Info: Calculating...",
                 reply_markup=button_markup,
-                parse_mode="html",
+                parse_mode=enums.ParseMode.HTML,
             )
             g_cmd = [
                 "rclone",
@@ -156,7 +156,7 @@ class CloneHelper:
                 f"🐈: {_up} Cloned successfully in your Cloud <a href='tg://user?id={self.u_id}'>😊</a>\
                 \n📀 Info:\n{g_autam}",
                 reply_markup=button_markup,
-                parse_mode="html",
+                parse_mode=enums.ParseMode.HTML,
             )
 
     async def gcl(self):
